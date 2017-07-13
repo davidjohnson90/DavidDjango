@@ -1,27 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>David's blog</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
-</head>
-
-<body>
-    <div>
-        <h1><a href="https://arundavidjohnson.blogspot.in/">Arun David Johnson Blog</a></h1>
-    </div>
-
-    {% for post in posts %}
-    <div>
-        <br>
-        <h1><a href="">{{ post.title }}</a></h1>
-        <p>{{ post.text | linebreaksbr }}</p>
+{% extends 'blog/base.html' %} {% block content %} {% for post in posts %}
+<div class="post">
+    <br>
+    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+    <p>{{ post.text | linebreaksbr }}</p>
+    <div class="date">
         <p><strong>Published: {{ post.published_date }}</strong></p>
-        <br>
     </div>
-    {% endfor %}
-</body>
-
-</html>
+    <br>
+</div>
+{% endfor %} {% endblock %}
