@@ -15,8 +15,8 @@
 
 <body>
     <div class="page-header">
-        {% if user.is_authenticated %}
-        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a> {% endif %}
+        {% comment %} {% if user.is_authenticated %} {% endcomment %}
+        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a> {% comment %} {% endif %} {% endcomment %}
         <h1><a href="/">Arun David Johnson Blog</a></h1>
     </div>
 
